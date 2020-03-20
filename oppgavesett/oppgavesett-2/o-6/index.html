@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgavesett-2-o6</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+</head>
+<body>
+
+    <input type="text" placeholder="x" id="inputX" onchange="move()"/>
+    <input type="text" placeholder="y" id="inputY" onchange="move()"/>
+
+    <input type="range" placeholder="Width" min="10" max="1000" id="inputWidth" onchange="move()"/>
+    <input type="range" placeholder="Height" min="10" max="1000" id="inputHeight" onchange="move()"/>
+
+    <input type="range" placeholder="Corner" min="0" max="1000" id="inputCorner" onchange="move()"/>
+
+    <div id="box">
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
+
