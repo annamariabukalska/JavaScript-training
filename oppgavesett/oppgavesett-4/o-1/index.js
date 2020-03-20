@@ -1,20 +1,44 @@
+const listMovies = document.querySelector("#listMovies");
 
-let movies = ["About time", "Legally blonde", "Eat, prey and love", "Aladdin", "Tom and Jerry"]
+const inpNyFilm = document.querySelector("#inpNyFilm");
 
-console.log(movies[2], "Før oppdatering");
+const btn = document.querySelector("#btn");
 
-movies.push("Side om side")  // Legger inn en film på slutten av arrayet
-//varer = [...varer, "Loff"] // Legger inn en film på slutten av arrayet
-
-
-movies.unshift("Jamses Bond") // Legger inn i starten av arrayet
-//nvarer = ["Sjokomelk", ...varer]  // Legger inn i starten av arrayet
-
-// varer = [] // Nuller ut arrayet mitt
-
-console.log(movies[2], "Etter oppdatering");
-
-// movies.splice(3,"Spartacus");
-//console.log(movies)
+let allMovies = ["About time", "Legally blonde", "Eat, prey and love", "Aladdin", "Tom and Jerry"];
 
 
+console.log(allMovies[2], "Før oppdatering");
+
+allMovies.push("Side om side")  // Legger inn en film på slutten av arrayet
+//allMovies = [...varer, "Loff"] // Legger inn en film på slutten av arrayet
+
+
+allMovies.unshift("James Bond") // Legger inn i starten av arrayet
+//allMovies = ["Sjokomelk", ...varer]  // Legger inn i starten av arrayet
+
+// allMovies = [] // Nuller ut arrayet mitt
+console.log(`Filmen på plass nummer 3 i arrayet er ${allMovies[2]}`)
+console.log(allMovies[2], "Etter oppdatering");
+
+// allMovies.splice(3,"Spartacus");
+
+function viewMovies(){
+
+    listMovies.innerHTML = "";
+
+    for(const movie of allMovies) {
+        listMovies.innerHTML += `<li>${movie}</li>`;
+
+    }
+}
+
+function addMovie() {
+    allMovies = [...allMovies, inpNyFilm.value];
+    viewMovies();
+    inpNyFilm.value = "";
+
+}
+
+viewMovies();
+
+btn.onclick = addMovie;
