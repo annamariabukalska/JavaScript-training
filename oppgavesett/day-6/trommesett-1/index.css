@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    background-image: linear-gradient(#333, black);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    color: white;
+    display: grid;
+    gap: 5px;
+    grid-auto-flow: column;    
+}
+
+main div {
+    border: 1px solid gray;
+    padding: 10px;
+    display: grid;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+div[data-key="90"] {
+    background-color: orange;
+}
+
+main div kbd {
+    font-size: 2rem;
+    color: lightcoral;
+}
