@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+}
+main {
+    height: 100vh;
+    background-color: #4ec0ca;
+    background-image: url("./img/bg.png");
+    background-position: 0 bottom;
+    background-repeat: no-repeat-x;
+    animation: animerBakgrunn 2s linear infinite;
+}
+
+.pause {
+    animation-play-state: paused;
+}
+
+@keyframes animerBakgrunn {
+    to {
+        background-position: -288px bottom;
+    }
+}
+
+#playBtn {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+#fugl {
+    position: absolute;
+    
+    left: 60px;
+    top: 20px;
+}
