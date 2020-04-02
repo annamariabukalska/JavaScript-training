@@ -29,5 +29,14 @@
 	body {
 		background: black;
 		color: yellow;
+		columns: 2;
 	}
+	html {
+  scroll-behavior: smooth;
+  position: fixed;
+    overflow: auto;
+    min-height:100px;
+    height: 200px;
+    float: right;
+}
 </style>
