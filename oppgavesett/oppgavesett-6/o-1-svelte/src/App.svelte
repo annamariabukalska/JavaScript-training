@@ -14,29 +14,33 @@
 <main>
 	<h1>Star Wars-Movie</h1>
 
-	{#each movies as movie}
-		<article>
-			<h1>{movie.title}</h1>
-			<p>{movie.opening_crawl}</p>
-		</article>
-	{:else}
-		<h2>Laster filmer....</h2>
-	{/each}
+
+	<section>
+		{#each movies as movie}
+			<article>
+				<h1>{movie.title}</h1>
+				<p>{movie.opening_crawl}</p>
+			</article>
+		{:else}
+			<h2>Laster filmer....</h2>
+		{/each}
+	</section>
 
 </main>
 
 <style>
-	body {
+	main {
+		padding: 16px;
 		background: black;
 		color: yellow;
-		columns: 2;
 	}
-	html {
-  scroll-behavior: smooth;
-  position: fixed;
-    overflow: auto;
-    min-height:100px;
-    height: 200px;
-    float: right;
-}
+
+	section {
+		display: grid;
+		grid-template-columns: 1fr 1fr ;
+		gap: 16px;
+	}
+
+
+
 </style>

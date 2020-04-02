@@ -43,6 +43,12 @@ var app = (function () {
     function space() {
         return text(' ');
     }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else if (node.getAttribute(attribute) !== value)
+            node.setAttribute(attribute, value);
+    }
     function children(element) {
         return Array.from(element.childNodes);
     }
@@ -256,6 +262,13 @@ var app = (function () {
     function detach_dev(node) {
         dispatch_dev("SvelteDOMRemove", { node });
         detach(node);
+    }
+    function attr_dev(node, attribute, value) {
+        attr(node, attribute, value);
+        if (value == null)
+            dispatch_dev("SvelteDOMRemoveAttribute", { node, attribute });
+        else
+            dispatch_dev("SvelteDOMSetAttribute", { node, attribute, value });
     }
     function set_data_dev(text, data) {
         data = '' + data;
@@ -477,6 +490,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			if_block.c();
+    			attr_dev(main, "class", "svelte-12cdws6");
     			add_location(main, file, 19, 0, 264);
     		},
     		l: function claim(nodes) {

@@ -34,7 +34,7 @@
 </main>
 
 <style>
-	body {
+	main {
 		background: black;
 		color: yellow;
 	}
