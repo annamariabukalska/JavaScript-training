@@ -1,29 +1,18 @@
 <script>
 
-	let personId = 1
+	let personId = 1;
 	let person;
 
 	const getPerson = async () => {
-		
 
-  let headers = new Headers();
-  
-  headers.append('Content-Type', 'application/json');
-  headers.append('Accept', 'application/json');
-  headers.append('Origin','http://localhost:5000');
-
-	const response = await fetch(`https://swapi.co/api/people/${personId}`, {
-			mode: 'cors',
-        	method: 'POST',
-       		headers: headers
-		})
-		
-		const json = await response.json()
-		person = json
+		const response = await fetch(`https://swapi.co/api/people/${personId} /`);
+		const json = await response.json();
+		person = json;
+		console.log(person)
 
 	}
 
-	getPerson()
+	getPerson();
 	
 </script>
 <header>
