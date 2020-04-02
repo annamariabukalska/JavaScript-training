@@ -339,7 +339,7 @@ var app = (function () {
     		c: function create() {
     			h2 = element("h2");
     			h2.textContent = "Laster personer....";
-    			add_location(h2, file, 33, 2, 704);
+    			add_location(h2, file, 33, 2, 706);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h2, anchor);
@@ -433,18 +433,18 @@ var app = (function () {
     			strong4.textContent = "Gender:";
     			t19 = space();
     			t20 = text(t20_value);
-    			add_location(h1, file, 25, 3, 387);
-    			add_location(strong0, file, 26, 6, 416);
-    			add_location(p0, file, 26, 3, 413);
-    			add_location(strong1, file, 27, 6, 468);
-    			add_location(p1, file, 27, 3, 465);
-    			add_location(strong2, file, 28, 6, 516);
-    			add_location(p2, file, 28, 3, 513);
-    			add_location(strong3, file, 29, 6, 574);
-    			add_location(p3, file, 29, 3, 571);
-    			add_location(strong4, file, 30, 6, 634);
-    			add_location(p4, file, 30, 3, 631);
-    			add_location(article, file, 24, 2, 374);
+    			add_location(h1, file, 25, 3, 389);
+    			add_location(strong0, file, 26, 6, 418);
+    			add_location(p0, file, 26, 3, 415);
+    			add_location(strong1, file, 27, 6, 470);
+    			add_location(p1, file, 27, 3, 467);
+    			add_location(strong2, file, 28, 6, 518);
+    			add_location(p2, file, 28, 3, 515);
+    			add_location(strong3, file, 29, 6, 576);
+    			add_location(p3, file, 29, 3, 573);
+    			add_location(strong4, file, 30, 6, 636);
+    			add_location(p4, file, 30, 3, 633);
+    			add_location(article, file, 24, 2, 376);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, article, anchor);
@@ -501,11 +501,11 @@ var app = (function () {
     }
 
     function create_fragment(ctx) {
+    	let main;
     	let header;
     	let input;
     	let input_updating = false;
     	let t;
-    	let main;
     	let dispose;
 
     	function input_input_handler() {
@@ -523,25 +523,26 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
+    			main = element("main");
     			header = element("header");
     			input = element("input");
     			t = space();
-    			main = element("main");
     			if_block.c();
     			attr_dev(input, "type", "number");
-    			add_location(input, file, 18, 1, 272);
-    			add_location(header, file, 17, 0, 262);
-    			add_location(main, file, 21, 0, 349);
+    			add_location(input, file, 20, 2, 282);
+    			add_location(header, file, 19, 1, 271);
+    			attr_dev(main, "class", "svelte-tfvlv6");
+    			add_location(main, file, 18, 0, 263);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor, remount) {
-    			insert_dev(target, header, anchor);
+    			insert_dev(target, main, anchor);
+    			append_dev(main, header);
     			append_dev(header, input);
     			set_input_value(input, /*personId*/ ctx[0]);
-    			insert_dev(target, t, anchor);
-    			insert_dev(target, main, anchor);
+    			append_dev(main, t);
     			if_block.m(main, null);
     			if (remount) run_all(dispose);
 
@@ -572,8 +573,6 @@ var app = (function () {
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(header);
-    			if (detaching) detach_dev(t);
     			if (detaching) detach_dev(main);
     			if_block.d();
     			run_all(dispose);
@@ -647,10 +646,9 @@ var app = (function () {
 
     const app = new App({
     	target: document.body,
-    	props: {
-    		name: 'world'
-    	}
     });
+
+    window.app = app;
 
     return app;
 

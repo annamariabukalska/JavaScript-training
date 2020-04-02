@@ -15,12 +15,12 @@
 	getPerson();
 	
 </script>
-<header>
-	<input type="number" bind:value={personId} on:input={getPerson}/>
-</header>
 
 <main>
-	
+	<header>
+		<input type="number" bind:value={personId} on:input={getPerson}/>
+	</header>
+
 	{#if person}
 		<article>
 			<h1>{person.name}</h1>
@@ -36,8 +36,7 @@
 </main>
 
 <style>
-	body {
-		background: black;
-		color: yellow;
+	main {
+		margin: 70px;
 	}
 </style>
