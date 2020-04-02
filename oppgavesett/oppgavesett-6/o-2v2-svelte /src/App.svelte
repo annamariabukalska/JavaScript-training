@@ -33,3 +33,9 @@
 	{/if}
 </main>
 
+<style>
+	body {
+		background: black;
+		color: yellow;
+	}
+</style>
