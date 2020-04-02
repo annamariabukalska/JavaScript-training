@@ -43,26 +43,8 @@ var app = (function () {
     function space() {
         return text(' ');
     }
-    function listen(node, event, handler, options) {
-        node.addEventListener(event, handler, options);
-        return () => node.removeEventListener(event, handler, options);
-    }
-    function attr(node, attribute, value) {
-        if (value == null)
-            node.removeAttribute(attribute);
-        else if (node.getAttribute(attribute) !== value)
-            node.setAttribute(attribute, value);
-    }
-    function to_number(value) {
-        return value === '' ? undefined : +value;
-    }
     function children(element) {
         return Array.from(element.childNodes);
-    }
-    function set_input_value(input, value) {
-        if (value != null || input.value) {
-            input.value = value;
-        }
     }
     function custom_event(type, detail) {
         const e = document.createEvent('CustomEvent');
@@ -275,26 +257,6 @@ var app = (function () {
         dispatch_dev("SvelteDOMRemove", { node });
         detach(node);
     }
-    function listen_dev(node, event, handler, options, has_prevent_default, has_stop_propagation) {
-        const modifiers = options === true ? ["capture"] : options ? Array.from(Object.keys(options)) : [];
-        if (has_prevent_default)
-            modifiers.push('preventDefault');
-        if (has_stop_propagation)
-            modifiers.push('stopPropagation');
-        dispatch_dev("SvelteDOMAddEventListener", { node, event, handler, modifiers });
-        const dispose = listen(node, event, handler, options);
-        return () => {
-            dispatch_dev("SvelteDOMRemoveEventListener", { node, event, handler, modifiers });
-            dispose();
-        };
-    }
-    function attr_dev(node, attribute, value) {
-        attr(node, attribute, value);
-        if (value == null)
-            dispatch_dev("SvelteDOMRemoveAttribute", { node, attribute });
-        else
-            dispatch_dev("SvelteDOMSetAttribute", { node, attribute, value });
-    }
     function set_data_dev(text, data) {
         data = '' + data;
         if (text.data === data)
@@ -331,7 +293,7 @@ var app = (function () {
     const { console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (33:1) {:else}
+    // (31:1) {:else}
     function create_else_block(ctx) {
     	let h2;
 
@@ -339,7 +301,7 @@ var app = (function () {
     		c: function create() {
     			h2 = element("h2");
     			h2.textContent = "Laster personer....";
-    			add_location(h2, file, 33, 2, 704);
+    			add_location(h2, file, 31, 2, 619);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h2, anchor);
@@ -354,48 +316,48 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(33:1) {:else}",
+    		source: "(31:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (24:1) {#if person}
+    // (22:1) {#if person}
     function create_if_block(ctx) {
     	let article;
     	let h1;
-    	let t0_value = /*person*/ ctx[1].name + "";
+    	let t0_value = /*person*/ ctx[0].name + "";
     	let t0;
     	let t1;
     	let p0;
     	let strong0;
     	let t3;
-    	let t4_value = /*person*/ ctx[1].height + "";
+    	let t4_value = /*person*/ ctx[0].height + "";
     	let t4;
     	let t5;
     	let p1;
     	let strong1;
     	let t7;
-    	let t8_value = /*person*/ ctx[1].mass + "";
+    	let t8_value = /*person*/ ctx[0].mass + "";
     	let t8;
     	let t9;
     	let p2;
     	let strong2;
     	let t11;
-    	let t12_value = /*person*/ ctx[1].eye_color + "";
+    	let t12_value = /*person*/ ctx[0].eye_color + "";
     	let t12;
     	let t13;
     	let p3;
     	let strong3;
     	let t15;
-    	let t16_value = /*person*/ ctx[1].birth_year + "";
+    	let t16_value = /*person*/ ctx[0].birth_year + "";
     	let t16;
     	let t17;
     	let p4;
     	let strong4;
     	let t19;
-    	let t20_value = /*person*/ ctx[1].gender + "";
+    	let t20_value = /*person*/ ctx[0].gender + "";
     	let t20;
 
     	const block = {
@@ -433,18 +395,18 @@ var app = (function () {
     			strong4.textContent = "Gender:";
     			t19 = space();
     			t20 = text(t20_value);
-    			add_location(h1, file, 25, 3, 387);
-    			add_location(strong0, file, 26, 6, 416);
-    			add_location(p0, file, 26, 3, 413);
-    			add_location(strong1, file, 27, 6, 468);
-    			add_location(p1, file, 27, 3, 465);
-    			add_location(strong2, file, 28, 6, 516);
-    			add_location(p2, file, 28, 3, 513);
-    			add_location(strong3, file, 29, 6, 574);
-    			add_location(p3, file, 29, 3, 571);
-    			add_location(strong4, file, 30, 6, 634);
-    			add_location(p4, file, 30, 3, 631);
-    			add_location(article, file, 24, 2, 374);
+    			add_location(h1, file, 23, 3, 302);
+    			add_location(strong0, file, 24, 6, 331);
+    			add_location(p0, file, 24, 3, 328);
+    			add_location(strong1, file, 25, 6, 383);
+    			add_location(p1, file, 25, 3, 380);
+    			add_location(strong2, file, 26, 6, 431);
+    			add_location(p2, file, 26, 3, 428);
+    			add_location(strong3, file, 27, 6, 489);
+    			add_location(p3, file, 27, 3, 486);
+    			add_location(strong4, file, 28, 6, 549);
+    			add_location(p4, file, 28, 3, 546);
+    			add_location(article, file, 22, 2, 289);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, article, anchor);
@@ -477,12 +439,12 @@ var app = (function () {
     			append_dev(p4, t20);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*person*/ 2 && t0_value !== (t0_value = /*person*/ ctx[1].name + "")) set_data_dev(t0, t0_value);
-    			if (dirty & /*person*/ 2 && t4_value !== (t4_value = /*person*/ ctx[1].height + "")) set_data_dev(t4, t4_value);
-    			if (dirty & /*person*/ 2 && t8_value !== (t8_value = /*person*/ ctx[1].mass + "")) set_data_dev(t8, t8_value);
-    			if (dirty & /*person*/ 2 && t12_value !== (t12_value = /*person*/ ctx[1].eye_color + "")) set_data_dev(t12, t12_value);
-    			if (dirty & /*person*/ 2 && t16_value !== (t16_value = /*person*/ ctx[1].birth_year + "")) set_data_dev(t16, t16_value);
-    			if (dirty & /*person*/ 2 && t20_value !== (t20_value = /*person*/ ctx[1].gender + "")) set_data_dev(t20, t20_value);
+    			if (dirty & /*person*/ 1 && t0_value !== (t0_value = /*person*/ ctx[0].name + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*person*/ 1 && t4_value !== (t4_value = /*person*/ ctx[0].height + "")) set_data_dev(t4, t4_value);
+    			if (dirty & /*person*/ 1 && t8_value !== (t8_value = /*person*/ ctx[0].mass + "")) set_data_dev(t8, t8_value);
+    			if (dirty & /*person*/ 1 && t12_value !== (t12_value = /*person*/ ctx[0].eye_color + "")) set_data_dev(t12, t12_value);
+    			if (dirty & /*person*/ 1 && t16_value !== (t16_value = /*person*/ ctx[0].birth_year + "")) set_data_dev(t16, t16_value);
+    			if (dirty & /*person*/ 1 && t20_value !== (t20_value = /*person*/ ctx[0].gender + "")) set_data_dev(t20, t20_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(article);
@@ -493,7 +455,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(24:1) {#if person}",
+    		source: "(22:1) {#if person}",
     		ctx
     	});
 
@@ -501,20 +463,10 @@ var app = (function () {
     }
 
     function create_fragment(ctx) {
-    	let header;
-    	let input;
-    	let input_updating = false;
-    	let t;
     	let main;
-    	let dispose;
-
-    	function input_input_handler() {
-    		input_updating = true;
-    		/*input_input_handler*/ ctx[3].call(input);
-    	}
 
     	function select_block_type(ctx, dirty) {
-    		if (/*person*/ ctx[1]) return create_if_block;
+    		if (/*person*/ ctx[0]) return create_if_block;
     		return create_else_block;
     	}
 
@@ -523,40 +475,18 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			header = element("header");
-    			input = element("input");
-    			t = space();
     			main = element("main");
     			if_block.c();
-    			attr_dev(input, "type", "number");
-    			add_location(input, file, 18, 1, 272);
-    			add_location(header, file, 17, 0, 262);
-    			add_location(main, file, 21, 0, 349);
+    			add_location(main, file, 19, 0, 264);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
-    		m: function mount(target, anchor, remount) {
-    			insert_dev(target, header, anchor);
-    			append_dev(header, input);
-    			set_input_value(input, /*personId*/ ctx[0]);
-    			insert_dev(target, t, anchor);
+    		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
     			if_block.m(main, null);
-    			if (remount) run_all(dispose);
-
-    			dispose = [
-    				listen_dev(input, "input", input_input_handler),
-    				listen_dev(input, "input", /*getPerson*/ ctx[2], false, false, false)
-    			];
     		},
     		p: function update(ctx, [dirty]) {
-    			if (!input_updating && dirty & /*personId*/ 1) {
-    				set_input_value(input, /*personId*/ ctx[0]);
-    			}
-
-    			input_updating = false;
-
     			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
     				if_block.p(ctx, dirty);
     			} else {
@@ -572,11 +502,8 @@ var app = (function () {
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(header);
-    			if (detaching) detach_dev(t);
     			if (detaching) detach_dev(main);
     			if_block.d();
-    			run_all(dispose);
     		}
     	};
 
@@ -598,7 +525,7 @@ var app = (function () {
     	const getPerson = async () => {
     		const response = await fetch(`https://swapi.co/api/people/${personId} /`);
     		const json = await response.json();
-    		$$invalidate(1, person = json);
+    		$$invalidate(0, person = json);
     		console.log(person);
     	};
 
@@ -611,24 +538,18 @@ var app = (function () {
 
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("App", $$slots, []);
-
-    	function input_input_handler() {
-    		personId = to_number(this.value);
-    		$$invalidate(0, personId);
-    	}
-
     	$$self.$capture_state = () => ({ personId, person, getPerson });
 
     	$$self.$inject_state = $$props => {
-    		if ("personId" in $$props) $$invalidate(0, personId = $$props.personId);
-    		if ("person" in $$props) $$invalidate(1, person = $$props.person);
+    		if ("personId" in $$props) personId = $$props.personId;
+    		if ("person" in $$props) $$invalidate(0, person = $$props.person);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [personId, person, getPerson, input_input_handler];
+    	return [person];
     }
 
     class App extends SvelteComponentDev {

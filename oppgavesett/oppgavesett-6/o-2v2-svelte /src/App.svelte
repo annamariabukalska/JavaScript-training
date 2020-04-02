@@ -15,9 +15,7 @@
 	getPerson();
 	
 </script>
-<header>
-	<input type="number" bind:value={personId} on:input={getPerson}/>
-</header>
+
 
 <main>
 	
