@@ -5,8 +5,8 @@
     "../../App.svelte"
   ],
   "sourcesContent": [
-    "<script>\n\n\tlet personId = 1;\n\tlet person;\n\n\tconst getPerson = async () => {\n\n\t\tconst response = await fetch(`https://swapi.co/api/people/${personId} /`);\n\t\tconst json = await response.json();\n\t\tperson = json;\n\t\tconsole.log(person)\n\n\t}\n\n\tgetPerson();\n\t\n</script>\n\n\n<main>\n\t\n\t{#if person}\n\t\t<article>\n\t\t\t<h1>{person.name}</h1>\n\t\t\t<p><strong>Height: </strong> {person.height}</p>\n\t\t\t<p><strong>Mass: </strong> {person.mass}</p>\n\t\t\t<p><strong>Eye color: </strong> {person.eye_color}</p>\n\t\t\t<p><strong>Birth Year: </strong> {person.birth_year}</p>\n\t\t\t<p><strong>Gender: </strong> {person.gender}</p>\n\t\t</article>\n\t{:else}\n\t\t<h2>Laster personer....</h2>\n\t{/if}\n</main>\n\n<style>\n\tmain {\n\t\tbackground: black;\n\t\tcolor: yellow;\n\t}\n</style>"
+    "<script>\n\n\tlet personId = 1;\n\tlet person;\n\n\tconst getPerson = async () => {\n\n\t\tconst response = await fetch(`https://swapi.co/api/people/${personId} /`);\n\t\tconst json = await response.json();\n\t\tperson = json;\n\t\tconsole.log(person);\n\t}\n\n\tgetPerson();\n\t\n</script>\n\n<main>\n\n\t{#if person}\n\t\t<article>\n\t\t\t<h1>{person.name}</h1>\n\t\t\t<p><strong>Height: </strong> {person.height}</p>\n\t\t\t<p><strong>Mass: </strong> {person.mass}</p>\n\t\t\t<p><strong>Eye color: </strong> {person.eye_color}</p>\n\t\t\t<p><strong>Birth Year: </strong> {person.birth_year}</p>\n\t\t\t<p><strong>Gender: </strong> {person.gender}</p>\n\t\t</article>\n\t{:else}\n\t\t<h2>Laster personer....</h2>\n\t{/if}\n</main>\n\n<style>\n\tmain {\n\t\tmargin: 70px;\n\t}\n</style>\n"
   ],
   "names": [],
-  "mappings": "AAoCC,IAAI,eAAC,CAAC,AACL,UAAU,CAAE,KAAK,CACjB,KAAK,CAAE,MAAM,AACd,CAAC"
+  "mappings": "AAkCC,IAAI,cAAC,CAAC,AACL,MAAM,CAAE,IAAI,AACb,CAAC"
 }

@@ -306,7 +306,7 @@ var app = (function () {
     const { console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (31:1) {:else}
+    // (29:1) {:else}
     function create_else_block(ctx) {
     	let h2;
 
@@ -314,7 +314,7 @@ var app = (function () {
     		c: function create() {
     			h2 = element("h2");
     			h2.textContent = "Laster personer....";
-    			add_location(h2, file, 31, 2, 619);
+    			add_location(h2, file, 29, 2, 617);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h2, anchor);
@@ -329,14 +329,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(31:1) {:else}",
+    		source: "(29:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (22:1) {#if person}
+    // (20:1) {#if person}
     function create_if_block(ctx) {
     	let article;
     	let h1;
@@ -408,18 +408,18 @@ var app = (function () {
     			strong4.textContent = "Gender:";
     			t19 = space();
     			t20 = text(t20_value);
-    			add_location(h1, file, 23, 3, 302);
-    			add_location(strong0, file, 24, 6, 331);
-    			add_location(p0, file, 24, 3, 328);
-    			add_location(strong1, file, 25, 6, 383);
-    			add_location(p1, file, 25, 3, 380);
-    			add_location(strong2, file, 26, 6, 431);
-    			add_location(p2, file, 26, 3, 428);
-    			add_location(strong3, file, 27, 6, 489);
-    			add_location(p3, file, 27, 3, 486);
-    			add_location(strong4, file, 28, 6, 549);
-    			add_location(p4, file, 28, 3, 546);
-    			add_location(article, file, 22, 2, 289);
+    			add_location(h1, file, 21, 3, 300);
+    			add_location(strong0, file, 22, 6, 329);
+    			add_location(p0, file, 22, 3, 326);
+    			add_location(strong1, file, 23, 6, 381);
+    			add_location(p1, file, 23, 3, 378);
+    			add_location(strong2, file, 24, 6, 429);
+    			add_location(p2, file, 24, 3, 426);
+    			add_location(strong3, file, 25, 6, 487);
+    			add_location(p3, file, 25, 3, 484);
+    			add_location(strong4, file, 26, 6, 547);
+    			add_location(p4, file, 26, 3, 544);
+    			add_location(article, file, 20, 2, 287);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, article, anchor);
@@ -468,7 +468,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(22:1) {#if person}",
+    		source: "(20:1) {#if person}",
     		ctx
     	});
 
@@ -490,8 +490,8 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			if_block.c();
-    			attr_dev(main, "class", "svelte-12cdws6");
-    			add_location(main, file, 19, 0, 264);
+    			attr_dev(main, "class", "svelte-tfvlv6");
+    			add_location(main, file, 17, 0, 263);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -582,10 +582,9 @@ var app = (function () {
 
     const app = new App({
     	target: document.body,
-    	props: {
-    		name: 'world'
-    	}
     });
+
+    window.app = app;
 
     return app;
 

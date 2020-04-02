@@ -8,17 +8,15 @@
 		const response = await fetch(`https://swapi.co/api/people/${personId} /`);
 		const json = await response.json();
 		person = json;
-		console.log(person)
-
+		console.log(person);
 	}
 
 	getPerson();
 	
 </script>
 
-
 <main>
-	
+
 	{#if person}
 		<article>
 			<h1>{person.name}</h1>
@@ -35,7 +33,6 @@
 
 <style>
 	main {
-		background: black;
-		color: yellow;
+		margin: 70px;
 	}
 </style>
