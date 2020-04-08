@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../../App.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n\n\tlet kanaler = [];\n\tlet url = \"kanaler.json\"\n\n\tconst getKanaler = async () => {\n\t\tconst response = await fetch(url);\n\t\tconst json = await response.json();\n\t\tkanaler = json.results;\n\t}\n\n\tgetKanaler();\n\t\n</script>\n<main>\n<h1>Mine radiokanaler</h1>\n<ul>\n\t{#each kanaler as kanal}\n\t\t\t<li>{kanal.title} {kanal.signal}</li>\n\t{:else}\n\t\t<li>Laster mine radiokanaler....</li>\n\t{/each}\n</ul>\n</main>\n\n<style>\n\tmain {\n\t\tmargin: 250px;\n\t}\n</style>\n\n"
+  ],
+  "names": [],
+  "mappings": "AA0BC,IAAI,eAAC,CAAC,AACL,MAAM,CAAE,KAAK,AACd,CAAC"
+}
