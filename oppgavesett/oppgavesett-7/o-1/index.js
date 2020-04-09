@@ -23,12 +23,15 @@ const steder = [
 
 
 const addMarker = (lokal) => {
-    const marker = new mapboxgl.Marker()
+    const div = document.createElement("div")
+    div.className = "frognerparkenmarker"
+    const marker = new mapboxgl.Marker(div)
     const minPopup = new mapboxgl.Popup()
     minPopup.setHTML(`
         <h1>${lokal.navn}</h1>
         <p>${lokal.tekst}</p>
     `)
+
 
     marker.setLngLat([lokal.lng, lokal.lat])
     marker.setPopup(minPopup)
