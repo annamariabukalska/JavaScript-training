@@ -6,7 +6,7 @@ const map = new mapboxgl.Map({
     center: [10.701317, 59.927157]
 });
 
-const lokal = [
+const steder = [
     {
         navn: "Sirkusteltet Frognerparken",
         tekst: "Teater",
@@ -24,7 +24,7 @@ const lokal = [
 
 const addMarker = (lokal) => {
     const marker = new mapboxgl.Marker()
-    const minPopup = new mapboxgl.minPopup()
+    const minPopup = new mapboxgl.Popup()
     minPopup.setHTML(`
         <h1>${lokal.navn}</h1>
         <p>${lokal.tekst}</p>
@@ -37,7 +37,7 @@ const addMarker = (lokal) => {
 }
 
 const addMarkers = () => {
-    for(const lokal of lokaler){
+    for(const lokal of steder){
         addMarker(lokal)
     }
 }
