@@ -4,13 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oslo turist</title>
-    <link rel="stylesheet" href="./index.css">
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="./index.css">
 
 </head>
 <body>
-    
+
     <div id="kartet"></div>
+
+    <div id="knapper">
+        <button data-mode="mapbox://styles/mapbox/dark-v10">Night Mode</button>
+        <button data-mode="mapbox://styles/mapbox/streets-v11">Day Mode</button>
+        <button data-mode="mapbox://styles/mapbox/satellite-v9">Satellite</button>
+    </div>
+
+    <div id="flyknapper">
+         <button 
+            data-lng="10.760030",
+            data-lat="59.946535"
+            >Fly Nesoden
+        </button>
+        <button 
+            data-lng="10.760030",
+            data-lat="59.946535"
+        >Fly Grunnerløkka
+    </button>
+
+    </div>
+
 
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>

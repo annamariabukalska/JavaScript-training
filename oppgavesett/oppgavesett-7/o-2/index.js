@@ -1,8 +1,4 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5uYW1hcmlhYnVrYWxza2EiLCJhIjoiY2s4cG1rbXJsMDZsOTNsbDliYzE0MDZ0ciJ9.nS-rBSr1cFkCTVXAdpYG8A';
-
-const knapper = document.querySelector("#knapper")
-const flyknapper = document.querySelector("#flyknapper")
-
 const map = new mapboxgl.Map({
     container: 'kartet',
     style: 'mapbox://styles/mapbox/streets-v11',
@@ -49,25 +45,4 @@ const addMarkers = () => {
     }
 }
 
-const changeMode = (evt) => {
-    const knapp = evt.target
-    const mode = knapp.dataset.mode
-
-    map.setStyle(mode)
-}
-
-const flyTil = (evt) => {
-    const knapp = evt.target
-    const lng = knapp.dataset.lng
-    const lat = knapp.dataset.lat 
-
-    map.flyTo({
-        center: [lng, lat],
-        zoom: 18
-    })
-}
-
 map.on("load", addMarkers)
-
-knapper.onclick = changeMode
-flyknapper.onclick = flyTil
