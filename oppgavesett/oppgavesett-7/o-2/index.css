@@ -8,9 +8,14 @@ body{
     height: 100vh;
 }
 
-.frognerparkenmarker{
-    width: 50px;
-    height: 50px;
-    background-image: url("./img/images.png");
+.mal{
+    width: 60px;
+    height: 60px;
     background-size: cover;
+}
+
+#knapper{
+    position: absolute;
+    left: 20px;
+    top: 20px;
 }
