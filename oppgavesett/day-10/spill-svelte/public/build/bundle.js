@@ -336,23 +336,14 @@ var app = (function () {
     	let t0;
     	let section;
     	let header;
-    	let t1_1;
-    	let t2_1;
+    	let div0;
+    	let t1;
+    	let t2;
     	let t3;
-    	let t4;
-    	let t5;
-    	let t6;
-    	let t7;
     	let main;
-    	let div;
-    	let t8;
-    	let t9;
-    	let t10;
-    	let t11;
-    	let t12;
-    	let t13;
-    	let div_class_value;
-    	let t14;
+    	let div1;
+    	let div1_class_value;
+    	let t4;
     	let footer;
     	let input;
     	let dispose;
@@ -363,35 +354,27 @@ var app = (function () {
     			t0 = space();
     			section = element("section");
     			header = element("header");
-    			t1_1 = text("Fasit: ");
-    			t2_1 = text(/*fasit*/ ctx[3]);
-    			t3 = text(" \n\tSvar:  ");
-    			t4 = text(/*svar*/ ctx[1]);
-    			t5 = text("\n\tHar du svar riktig: ");
-    			t6 = text(/*riktigsvar*/ ctx[2]);
-    			t7 = space();
+    			div0 = element("div");
+    			t1 = text("Poeng: ");
+    			t2 = text(/*poeng*/ ctx[2]);
+    			t3 = space();
     			main = element("main");
-    			div = element("div");
-    			t8 = text(/*regnestykke*/ ctx[4]);
-    			t9 = space();
-    			t10 = text(/*t1*/ ctx[5]);
-    			t11 = text(" * ");
-    			t12 = text(/*t2*/ ctx[6]);
-    			t13 = text(" = ?");
-    			t14 = space();
+    			div1 = element("div");
+    			t4 = space();
     			footer = element("footer");
     			input = element("input");
-    			add_location(svelt_window, file, 36, 0, 577);
-    			add_location(header, file, 38, 0, 626);
-    			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*klasse*/ ctx[0]) + " svelte-1lzcjhj"));
-    			add_location(div, file, 44, 1, 719);
+    			add_location(svelt_window, file, 41, 0, 639);
+    			add_location(div0, file, 44, 1, 698);
+    			add_location(header, file, 43, 0, 688);
+    			attr_dev(div1, "class", div1_class_value = "" + (null_to_empty(/*klasse*/ ctx[0]) + " svelte-1lzcjhj"));
+    			add_location(div1, file, 47, 1, 743);
     			attr_dev(main, "class", "svelte-1lzcjhj");
-    			add_location(main, file, 43, 0, 711);
+    			add_location(main, file, 46, 0, 734);
     			attr_dev(input, "type", "numer");
-    			add_location(input, file, 50, 1, 826);
-    			add_location(footer, file, 49, 0, 816);
+    			add_location(input, file, 53, 1, 820);
+    			add_location(footer, file, 52, 0, 810);
     			attr_dev(section, "class", "svelte-1lzcjhj");
-    			add_location(section, file, 37, 0, 616);
+    			add_location(section, file, 42, 0, 678);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -401,44 +384,30 @@ var app = (function () {
     			insert_dev(target, t0, anchor);
     			insert_dev(target, section, anchor);
     			append_dev(section, header);
-    			append_dev(header, t1_1);
-    			append_dev(header, t2_1);
-    			append_dev(header, t3);
-    			append_dev(header, t4);
-    			append_dev(header, t5);
-    			append_dev(header, t6);
-    			append_dev(section, t7);
+    			append_dev(header, div0);
+    			append_dev(div0, t1);
+    			append_dev(div0, t2);
+    			append_dev(section, t3);
     			append_dev(section, main);
-    			append_dev(main, div);
-    			append_dev(div, t8);
-    			append_dev(div, t9);
-    			append_dev(div, t10);
-    			append_dev(div, t11);
-    			append_dev(div, t12);
-    			append_dev(div, t13);
-    			append_dev(section, t14);
+    			append_dev(main, div1);
+    			append_dev(section, t4);
     			append_dev(section, footer);
     			append_dev(footer, input);
     			set_input_value(input, /*svar*/ ctx[1]);
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(svelt_window, "click", /*lahNyeTall*/ ctx[9], false, false, false),
-    				listen_dev(div, "animationed", /*gameOver*/ ctx[8], false, false, false),
-    				listen_dev(input, "input", /*input_input_handler*/ ctx[12]),
-    				listen_dev(input, "input", /*sjekkSvar*/ ctx[7], false, false, false)
+    				listen_dev(svelt_window, "click", /*lagNyeTall*/ ctx[3], false, false, false),
+    				listen_dev(div1, "animationed", /*gameOver*/ ctx[5], false, false, false),
+    				listen_dev(input, "input", /*input_input_handler*/ ctx[10]),
+    				listen_dev(input, "input", /*sjekkSvar*/ ctx[4], false, false, false)
     			];
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*fasit*/ 8) set_data_dev(t2_1, /*fasit*/ ctx[3]);
-    			if (dirty & /*svar*/ 2) set_data_dev(t4, /*svar*/ ctx[1]);
-    			if (dirty & /*riktigsvar*/ 4) set_data_dev(t6, /*riktigsvar*/ ctx[2]);
-    			if (dirty & /*regnestykke*/ 16) set_data_dev(t8, /*regnestykke*/ ctx[4]);
-    			if (dirty & /*t1*/ 32) set_data_dev(t10, /*t1*/ ctx[5]);
-    			if (dirty & /*t2*/ 64) set_data_dev(t12, /*t2*/ ctx[6]);
+    			if (dirty & /*poeng*/ 4) set_data_dev(t2, /*poeng*/ ctx[2]);
 
-    			if (dirty & /*klasse*/ 1 && div_class_value !== (div_class_value = "" + (null_to_empty(/*klasse*/ ctx[0]) + " svelte-1lzcjhj"))) {
-    				attr_dev(div, "class", div_class_value);
+    			if (dirty & /*klasse*/ 1 && div1_class_value !== (div1_class_value = "" + (null_to_empty(/*klasse*/ ctx[0]) + " svelte-1lzcjhj"))) {
+    				attr_dev(div1, "class", div1_class_value);
     			}
 
     			if (dirty & /*svar*/ 2) {
@@ -468,11 +437,23 @@ var app = (function () {
 
     function instance($$self, $$props, $$invalidate) {
     	let klasse = "faller";
+    	tall1 = Math.ceil(tall1);
+    	tall2 = Math.ceil(tall2);
     	let svar = "";
+    	let theGameIsOn = true;
+    	let poeng = 0;
+
+    	const lagNyeTall = () => {
+    		tall1 = Math.ceil(Math.random());
+    		tall2 = Math.ceil(Math.random());
+    	};
 
     	const sjekkSvar = () => {
-    		if (riktigsvar) {
+    		if (riktigsvar && theGameIsOn) {
+    			lagNyeTall();
+    			$$invalidate(1, svar = "");
     			$$invalidate(0, klasse = ""); /*tar bort tall fra rammen*/
+    			$$invalidate(2, poeng++, poeng);
 
     			setTimeout(
     				() => {
@@ -485,12 +466,6 @@ var app = (function () {
 
     	const gameOver = () => {
     		console.log("GAME OVER");
-    	};
-
-    	let tall1 = Math.random();
-    	let tall2 = Math.random();
-
-    	const lahNyeTall = () => {
     	};
 
     	const writable_props = [];
@@ -510,70 +485,54 @@ var app = (function () {
     	$$self.$capture_state = () => ({
     		klasse,
     		svar,
+    		theGameIsOn,
+    		poeng,
+    		lagNyeTall,
     		sjekkSvar,
     		gameOver,
-    		tall1,
-    		tall2,
-    		lahNyeTall,
-    		riktigsvar,
     		fasit,
-    		regnestykke,
-    		t1,
-    		t2
+    		riktigsvar,
+    		regnestykke
     	});
 
     	$$self.$inject_state = $$props => {
     		if ("klasse" in $$props) $$invalidate(0, klasse = $$props.klasse);
     		if ("svar" in $$props) $$invalidate(1, svar = $$props.svar);
-    		if ("tall1" in $$props) $$invalidate(10, tall1 = $$props.tall1);
-    		if ("tall2" in $$props) $$invalidate(11, tall2 = $$props.tall2);
-    		if ("riktigsvar" in $$props) $$invalidate(2, riktigsvar = $$props.riktigsvar);
-    		if ("fasit" in $$props) $$invalidate(3, fasit = $$props.fasit);
-    		if ("regnestykke" in $$props) $$invalidate(4, regnestykke = $$props.regnestykke);
-    		if ("t1" in $$props) $$invalidate(5, t1 = $$props.t1);
-    		if ("t2" in $$props) $$invalidate(6, t2 = $$props.t2);
+    		if ("theGameIsOn" in $$props) theGameIsOn = $$props.theGameIsOn;
+    		if ("poeng" in $$props) $$invalidate(2, poeng = $$props.poeng);
+    		if ("fasit" in $$props) $$invalidate(6, fasit = $$props.fasit);
+    		if ("riktigsvar" in $$props) riktigsvar = $$props.riktigsvar;
+    		if ("regnestykke" in $$props) regnestykke = $$props.regnestykke;
     	};
 
+    	let fasit;
     	let riktigsvar;
     	let regnestykke;
-    	let t1;
-    	let t2;
-    	let fasit;
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*t1, t2*/ 96) {
-    			 $$invalidate(3, fasit = t1 * t2);
-    		}
-
-    		if ($$self.$$.dirty & /*fasit, svar*/ 10) {
-    			 $$invalidate(2, riktigsvar = fasit === svar);
-    		}
-
-    		if ($$self.$$.dirty & /*fasit*/ 8) {
-    			 $$invalidate(4, regnestykke = `${tall1} * ${tall2} = ${fasit}`);
+    		if ($$self.$$.dirty & /*fasit, svar*/ 66) {
+    			 riktigsvar = fasit === svar;
     		}
     	};
 
-    	 $$invalidate(5, t1 = Math.ceil(tall1));
-    	 $$invalidate(6, t2 = Math.ceil(tall2));
+    	 $$invalidate(6, fasit = tall1 * tall2);
+    	 regnestykke = `${tall1} * ${tall2}`;
 
     	return [
     		klasse,
     		svar,
-    		riktigsvar,
-    		fasit,
-    		regnestykke,
-    		t1,
-    		t2,
+    		poeng,
+    		lagNyeTall,
     		sjekkSvar,
     		gameOver,
-    		lahNyeTall,
-    		tall1,
-    		tall2,
+    		fasit,
+    		riktigsvar,
+    		regnestykke,
+    		theGameIsOn,
     		input_input_handler
     	];
     }

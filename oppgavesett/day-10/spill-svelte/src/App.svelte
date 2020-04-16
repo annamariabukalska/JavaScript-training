@@ -1,16 +1,31 @@
 <script>
+ 	let klasse = "faller"
 
-	let klasse = "faller"
+
+	tall1 = Math.ceil(tall1)
+	tall2 = Math.ceil(tall2)
+
+	$ : fasit = tall1 * tall2 
+
 	let svar = ""
-
+	let theGameIsOn = true
 	$: riktigsvar = (fasit === svar)
-	$: regnestykke = `${tall1} * ${tall2} = ${fasit}`
+	$: regnestykke = `${tall1} * ${tall2}`
+    let poeng = 0
 
+	const lagNyeTall = () => {
+		tall1 = Math.ceil(Math.random())
+		tall2 = Math.ceil(Math.random())
+
+	}
 
 	const sjekkSvar = () => {
-		if(riktigsvar){
-		klasse = ""       /*tar bort tall fra rammen*/
-		setTimeout( () => { klasse = "faller" }, 1000)
+		if(riktigsvar && theGameIsOn){
+			lagNyeTall()  
+			svar = ""
+			klasse = ""       /*tar bort tall fra rammen*/
+			poeng ++
+			setTimeout( () => { klasse = "faller" }, 1000)
 		}
 	}
 
@@ -18,31 +33,19 @@
 		const gameOver = () => {
 			console.log("GAME OVER")
 	}
-	let tall1 = Math.random() 
-	let tall2 = Math.random() 
+	
 
-	$:t1 = Math.ceil(tall1)
-	$:t2 = Math.ceil(tall2)
-
-	$ : fasit = t1 * t2 
-
-	const lahNyeTall = () => {
-		let tall1 = Math.random()
-		let tall2 = Math.random()
-
-	}
+	
 
 </script>
 
-<svelt:window on:click={lahNyeTall} />
+<svelt:window on:click={lagNyeTall} />
 <section>
 <header>
-	Fasit: {fasit} 
-	Svar:  {svar}
-	Har du svar riktig: {riktigsvar}
+	<div>Poeng: {poeng}</div>
 </header>
-<main>
-	<div on:animationed={gameOver} class="{klasse}"> {regnestykke} {t1} * {t2} = ?</div>
+<main> 
+	<div on:animationed={gameOver} class="{klasse}"></div>
 
 	
 </main>
