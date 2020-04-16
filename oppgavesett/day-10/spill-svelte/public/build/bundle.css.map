@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../../App.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n\n\tlet klasse = \"faller\"\n\tlet svar = \"\"\n\n\t$: riktigsvar = (fasit === svar)\n\t$: regnestykke = `${tall1} * ${tall2} = ${fasit}`\n\n\n\tconst sjekkSvar = () => {\n\t\tif(riktigsvar){\n\t\tklasse = \"\"       /*tar bort tall fra rammen*/\n\t\tsetTimeout( () => { klasse = \"faller\" }, 1000)\n\t\t}\n\t}\n\n\n\t\tconst gameOver = () => {\n\t\t\tconsole.log(\"GAME OVER\")\n\t}\n\tlet tall1 = Math.random() \n\tlet tall2 = Math.random() \n\n\t$:t1 = Math.ceil(tall1)\n\t$:t2 = Math.ceil(tall2)\n\n\t$ : fasit = t1 * t2 \n\n\tconst lahNyeTall = () => {\n\t\tlet tall1 = Math.random()\n\t\tlet tall2 = Math.random()\n\n\t}\n\n</script>\n\n<svelt:window on:click={lahNyeTall} />\n<section>\n<header>\n\tFasit: {fasit} \n\tSvar:  {svar}\n\tHar du svar riktig: {riktigsvar}\n</header>\n<main>\n\t<div on:animationed={gameOver} class=\"{klasse}\"> {regnestykke} {t1} * {t2} = ?</div>\n\n\t\n</main>\n\n<footer>\n\t<input type=\"numer\" bind:value={svar} on:input={sjekkSvar}>\n\n</footer>\n</section>\n\n<style>\n\n\t@keyframes fallNed{\n\t\tto{\n\t\t\ttransform: translateY(250px);\n\t\t}\n\t}\n\n\n\t.faller{\n\t\tanimation: fallNed 5s linear forwards;\n\t}\n \tmain div {\n\t width: 200px;\n\theight: 50px;\n\tline-height: 50px;\n\tmargin: 10px auto;\n\tbackground-color: orange;\n\ttext-align: center;\n\tfont-size: 2rem;\n\n\n }\n\n\tsection{\n\t\tbackground-image: (\"bakgrunn.png\");\n\t}\n</style>"
+  ],
+  "names": [],
+  "mappings": "AAyDC,WAAW,sBAAO,CAAC,AAClB,EAAE,CAAC,AACF,SAAS,CAAE,WAAW,KAAK,CAAC,AAC7B,CAAC,AACF,CAAC,AAGD,qCAAO,CAAC,AACP,SAAS,CAAE,sBAAO,CAAC,EAAE,CAAC,MAAM,CAAC,QAAQ,AACtC,CAAC,AACA,mBAAI,CAAC,GAAG,eAAC,CAAC,AACV,KAAK,CAAE,KAAK,CACb,MAAM,CAAE,IAAI,CACZ,WAAW,CAAE,IAAI,CACjB,MAAM,CAAE,IAAI,CAAC,IAAI,CACjB,gBAAgB,CAAE,MAAM,CACxB,UAAU,CAAE,MAAM,CAClB,SAAS,CAAE,IAAI,AAGf,CAAC,AAED,qCAAO,CAAC,AACP,gBAAgB,CAAE,CAAC,cAAc,CAAC,AACnC,CAAC"
+}
