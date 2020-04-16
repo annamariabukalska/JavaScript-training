@@ -1,72 +1,88 @@
 <script>
- 	let klasse = "faller"
-
-
-	tall1 = Math.ceil(tall1)
-	tall2 = Math.ceil(tall2)
-
-	$ : fasit = tall1 * tall2 
-
+	
+	let klasse = "faller"
+	
+	let tall1 = 9
+	let tall2 = 5
+	$: fasit = tall1 * tall2
 	let svar = ""
 	let theGameIsOn = true
 	$: riktigsvar = (fasit === svar)
-	$: regnestykke = `${tall1} * ${tall2}`
-    let poeng = 0
-
+	$: regnestykke = `${tall1} x ${tall2}`
+	let poeng = 0
+	
 	const lagNyeTall = () => {
-		tall1 = Math.ceil(Math.random())
-		tall2 = Math.ceil(Math.random())
-
+		tall1 =  Math.ceil(Math.random() * 10)
+		tall2 =  Math.ceil(Math.random() * 10)
 	}
-
+	
 	const sjekkSvar = () => {
-		if(riktigsvar && theGameIsOn){
-			lagNyeTall()  
-			svar = ""
-			klasse = ""       /*tar bort tall fra rammen*/
-			poeng ++
-			setTimeout( () => { klasse = "faller" }, 1000)
+		if(riktigsvar && theGameIsOn) {
+			lagNyeTall()
+			svar = ""	
+			klasse = ""
+			poeng++
+			setTimeout( () => { klasse = "faller" }, 50 )
 		}
-	}
-
-
-		const gameOver = () => {
-			console.log("GAME OVER")
+		
 	}
 	
-
+	const gameOver = () => {
+		theGameIsOn = false
+		console.log("GAME OVER")
+	}
 	
-
 </script>
 
-<svelt:window on:click={lagNyeTall} />
+
 <section>
-<header>
-	<div>Poeng: {poeng}</div>
-</header>
-<main> 
-	<div on:animationed={gameOver} class="{klasse}"></div>
-
+	<header>
+		<div class="poeng">
+			<label>Poeng</label>
+			<p>{poeng}</p>
+		</div>
+		<div class="poeng">
+			<label>Highscore</label>
+			<p>0</p>
+		</div>
+	</header>	
 	
-</main>
-
-<footer>
-	<input type="numer" bind:value={svar} on:input={sjekkSvar}>
-
-</footer>
+	<main>
+		<div on:animationend={gameOver} class="{klasse}">{regnestykke}</div>	
+	</main>
+	
+	<footer>
+		<input type="number" bind:value={svar} on:input={sjekkSvar}>
+	</footer>
+	
 </section>
 
 <style>
 
-	@keyframes fallNed{
-		to{
-			transform: translateY(250px);
-		}
+	*{
+		margin: 0;
 	}
 
 
 	.faller{
 		animation: fallNed 5s linear forwards;
+	}
+
+	.poeng p{
+		font-weight: 700;
+
+	}
+
+	.poeng{
+		text-align: center;
+		font-size: 2rem;
+		
+	}
+
+	@keyframes fallNed{
+		to{
+			transform: translateY(250px);
+		}
 	}
  	main div {
 	 width: 200px;
@@ -78,9 +94,33 @@
 	font-size: 2rem;
 
 
- }
+	 }
 
 	section{
-		background-image: ("bakgrunn.png");
+		display: grid;
+		grid-template-rows: auto 300px auto;
+		font-size: 5rem;
+		padding: 20px
 	}
+
+	footer{
+		background-color: lightgreen;
+	}
+
+	input{
+		width: 50%
+	}
+
+	header{
+		background-color: lightblue;
+		padding: 0.5rem;
+		display: grid; 
+		grid-template-columns: 1fr 1fr;	
+	}
+
+	main{
+		background: url(bakgrunn.png)
+
+	}
+	
 </style>

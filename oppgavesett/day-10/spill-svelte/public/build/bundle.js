@@ -56,6 +56,9 @@ var app = (function () {
         else if (node.getAttribute(attribute) !== value)
             node.setAttribute(attribute, value);
     }
+    function to_number(value) {
+        return value === '' ? undefined : +value;
+    }
     function children(element) {
         return Array.from(element.childNodes);
     }
@@ -332,93 +335,133 @@ var app = (function () {
     const file = "src/App.svelte";
 
     function create_fragment(ctx) {
-    	let svelt_window;
-    	let t0;
     	let section;
     	let header;
     	let div0;
+    	let label0;
     	let t1;
+    	let p0;
     	let t2;
     	let t3;
-    	let main;
     	let div1;
-    	let div1_class_value;
-    	let t4;
+    	let label1;
+    	let t5;
+    	let p1;
+    	let t7;
+    	let main;
+    	let div2;
+    	let t8;
+    	let div2_class_value;
+    	let t9;
     	let footer;
     	let input;
+    	let input_updating = false;
     	let dispose;
+
+    	function input_input_handler() {
+    		input_updating = true;
+    		/*input_input_handler*/ ctx[12].call(input);
+    	}
 
     	const block = {
     		c: function create() {
-    			svelt_window = element("svelt:window");
-    			t0 = space();
     			section = element("section");
     			header = element("header");
     			div0 = element("div");
-    			t1 = text("Poeng: ");
+    			label0 = element("label");
+    			label0.textContent = "Poeng";
+    			t1 = space();
+    			p0 = element("p");
     			t2 = text(/*poeng*/ ctx[2]);
     			t3 = space();
-    			main = element("main");
     			div1 = element("div");
-    			t4 = space();
+    			label1 = element("label");
+    			label1.textContent = "Highscore";
+    			t5 = space();
+    			p1 = element("p");
+    			p1.textContent = "0";
+    			t7 = space();
+    			main = element("main");
+    			div2 = element("div");
+    			t8 = text(/*regnestykke*/ ctx[3]);
+    			t9 = space();
     			footer = element("footer");
     			input = element("input");
-    			add_location(svelt_window, file, 41, 0, 639);
-    			add_location(div0, file, 44, 1, 698);
-    			add_location(header, file, 43, 0, 688);
-    			attr_dev(div1, "class", div1_class_value = "" + (null_to_empty(/*klasse*/ ctx[0]) + " svelte-1lzcjhj"));
-    			add_location(div1, file, 47, 1, 743);
-    			attr_dev(main, "class", "svelte-1lzcjhj");
-    			add_location(main, file, 46, 0, 734);
-    			attr_dev(input, "type", "numer");
-    			add_location(input, file, 53, 1, 820);
-    			add_location(footer, file, 52, 0, 810);
-    			attr_dev(section, "class", "svelte-1lzcjhj");
-    			add_location(section, file, 42, 0, 678);
+    			attr_dev(label0, "class", "svelte-y4a1r8");
+    			add_location(label0, file, 40, 3, 652);
+    			attr_dev(p0, "class", "svelte-y4a1r8");
+    			add_location(p0, file, 41, 3, 676);
+    			attr_dev(div0, "class", "poeng svelte-y4a1r8");
+    			add_location(div0, file, 39, 2, 629);
+    			attr_dev(label1, "class", "svelte-y4a1r8");
+    			add_location(label1, file, 44, 3, 725);
+    			attr_dev(p1, "class", "svelte-y4a1r8");
+    			add_location(p1, file, 45, 3, 753);
+    			attr_dev(div1, "class", "poeng svelte-y4a1r8");
+    			add_location(div1, file, 43, 2, 702);
+    			attr_dev(header, "class", "svelte-y4a1r8");
+    			add_location(header, file, 38, 1, 618);
+    			attr_dev(div2, "class", div2_class_value = "" + (null_to_empty(/*klasse*/ ctx[0]) + " svelte-y4a1r8"));
+    			add_location(div2, file, 50, 2, 795);
+    			attr_dev(main, "class", "svelte-y4a1r8");
+    			add_location(main, file, 49, 1, 786);
+    			attr_dev(input, "type", "number");
+    			attr_dev(input, "class", "svelte-y4a1r8");
+    			add_location(input, file, 54, 2, 888);
+    			attr_dev(footer, "class", "svelte-y4a1r8");
+    			add_location(footer, file, 53, 1, 877);
+    			attr_dev(section, "class", "svelte-y4a1r8");
+    			add_location(section, file, 37, 0, 607);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor, remount) {
-    			insert_dev(target, svelt_window, anchor);
-    			insert_dev(target, t0, anchor);
     			insert_dev(target, section, anchor);
     			append_dev(section, header);
     			append_dev(header, div0);
+    			append_dev(div0, label0);
     			append_dev(div0, t1);
-    			append_dev(div0, t2);
-    			append_dev(section, t3);
+    			append_dev(div0, p0);
+    			append_dev(p0, t2);
+    			append_dev(header, t3);
+    			append_dev(header, div1);
+    			append_dev(div1, label1);
+    			append_dev(div1, t5);
+    			append_dev(div1, p1);
+    			append_dev(section, t7);
     			append_dev(section, main);
-    			append_dev(main, div1);
-    			append_dev(section, t4);
+    			append_dev(main, div2);
+    			append_dev(div2, t8);
+    			append_dev(section, t9);
     			append_dev(section, footer);
     			append_dev(footer, input);
     			set_input_value(input, /*svar*/ ctx[1]);
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(svelt_window, "click", /*lagNyeTall*/ ctx[3], false, false, false),
-    				listen_dev(div1, "animationed", /*gameOver*/ ctx[5], false, false, false),
-    				listen_dev(input, "input", /*input_input_handler*/ ctx[10]),
+    				listen_dev(div2, "animationend", /*gameOver*/ ctx[5], false, false, false),
+    				listen_dev(input, "input", input_input_handler),
     				listen_dev(input, "input", /*sjekkSvar*/ ctx[4], false, false, false)
     			];
     		},
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*poeng*/ 4) set_data_dev(t2, /*poeng*/ ctx[2]);
+    			if (dirty & /*regnestykke*/ 8) set_data_dev(t8, /*regnestykke*/ ctx[3]);
 
-    			if (dirty & /*klasse*/ 1 && div1_class_value !== (div1_class_value = "" + (null_to_empty(/*klasse*/ ctx[0]) + " svelte-1lzcjhj"))) {
-    				attr_dev(div1, "class", div1_class_value);
+    			if (dirty & /*klasse*/ 1 && div2_class_value !== (div2_class_value = "" + (null_to_empty(/*klasse*/ ctx[0]) + " svelte-y4a1r8"))) {
+    				attr_dev(div2, "class", div2_class_value);
     			}
 
-    			if (dirty & /*svar*/ 2) {
+    			if (!input_updating && dirty & /*svar*/ 2) {
     				set_input_value(input, /*svar*/ ctx[1]);
     			}
+
+    			input_updating = false;
     		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(svelt_window);
-    			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(section);
     			run_all(dispose);
     		}
@@ -437,34 +480,35 @@ var app = (function () {
 
     function instance($$self, $$props, $$invalidate) {
     	let klasse = "faller";
-    	tall1 = Math.ceil(tall1);
-    	tall2 = Math.ceil(tall2);
+    	let tall1 = 9;
+    	let tall2 = 5;
     	let svar = "";
     	let theGameIsOn = true;
     	let poeng = 0;
 
     	const lagNyeTall = () => {
-    		tall1 = Math.ceil(Math.random());
-    		tall2 = Math.ceil(Math.random());
+    		$$invalidate(6, tall1 = Math.ceil(Math.random() * 10));
+    		$$invalidate(7, tall2 = Math.ceil(Math.random() * 10));
     	};
 
     	const sjekkSvar = () => {
     		if (riktigsvar && theGameIsOn) {
     			lagNyeTall();
     			$$invalidate(1, svar = "");
-    			$$invalidate(0, klasse = ""); /*tar bort tall fra rammen*/
+    			$$invalidate(0, klasse = "");
     			$$invalidate(2, poeng++, poeng);
 
     			setTimeout(
     				() => {
     					$$invalidate(0, klasse = "faller");
     				},
-    				1000
+    				50
     			);
     		}
     	};
 
     	const gameOver = () => {
+    		theGameIsOn = false;
     		console.log("GAME OVER");
     	};
 
@@ -478,12 +522,14 @@ var app = (function () {
     	validate_slots("App", $$slots, []);
 
     	function input_input_handler() {
-    		svar = this.value;
+    		svar = to_number(this.value);
     		$$invalidate(1, svar);
     	}
 
     	$$self.$capture_state = () => ({
     		klasse,
+    		tall1,
+    		tall2,
     		svar,
     		theGameIsOn,
     		poeng,
@@ -497,12 +543,14 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ("klasse" in $$props) $$invalidate(0, klasse = $$props.klasse);
+    		if ("tall1" in $$props) $$invalidate(6, tall1 = $$props.tall1);
+    		if ("tall2" in $$props) $$invalidate(7, tall2 = $$props.tall2);
     		if ("svar" in $$props) $$invalidate(1, svar = $$props.svar);
     		if ("theGameIsOn" in $$props) theGameIsOn = $$props.theGameIsOn;
     		if ("poeng" in $$props) $$invalidate(2, poeng = $$props.poeng);
-    		if ("fasit" in $$props) $$invalidate(6, fasit = $$props.fasit);
+    		if ("fasit" in $$props) $$invalidate(9, fasit = $$props.fasit);
     		if ("riktigsvar" in $$props) riktigsvar = $$props.riktigsvar;
-    		if ("regnestykke" in $$props) regnestykke = $$props.regnestykke;
+    		if ("regnestykke" in $$props) $$invalidate(3, regnestykke = $$props.regnestykke);
     	};
 
     	let fasit;
@@ -514,25 +562,32 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*fasit, svar*/ 66) {
+    		if ($$self.$$.dirty & /*tall1, tall2*/ 192) {
+    			 $$invalidate(9, fasit = tall1 * tall2);
+    		}
+
+    		if ($$self.$$.dirty & /*fasit, svar*/ 514) {
     			 riktigsvar = fasit === svar;
     		}
-    	};
 
-    	 $$invalidate(6, fasit = tall1 * tall2);
-    	 regnestykke = `${tall1} * ${tall2}`;
+    		if ($$self.$$.dirty & /*tall1, tall2*/ 192) {
+    			 $$invalidate(3, regnestykke = `${tall1} x ${tall2}`);
+    		}
+    	};
 
     	return [
     		klasse,
     		svar,
     		poeng,
-    		lagNyeTall,
+    		regnestykke,
     		sjekkSvar,
     		gameOver,
+    		tall1,
+    		tall2,
+    		theGameIsOn,
     		fasit,
     		riktigsvar,
-    		regnestykke,
-    		theGameIsOn,
+    		lagNyeTall,
     		input_input_handler
     	];
     }
