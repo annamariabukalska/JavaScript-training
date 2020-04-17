@@ -119,7 +119,7 @@
 	}
 
 	main{
-		background: url(bakgrunn.png)
+		background-image: url("/img/bakgrunn.png");
 
 	}
 	

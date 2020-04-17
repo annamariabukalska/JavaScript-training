@@ -387,30 +387,30 @@ var app = (function () {
     			t9 = space();
     			footer = element("footer");
     			input = element("input");
-    			attr_dev(label0, "class", "svelte-y4a1r8");
+    			attr_dev(label0, "class", "svelte-1ft84ws");
     			add_location(label0, file, 40, 3, 652);
-    			attr_dev(p0, "class", "svelte-y4a1r8");
+    			attr_dev(p0, "class", "svelte-1ft84ws");
     			add_location(p0, file, 41, 3, 676);
-    			attr_dev(div0, "class", "poeng svelte-y4a1r8");
+    			attr_dev(div0, "class", "poeng svelte-1ft84ws");
     			add_location(div0, file, 39, 2, 629);
-    			attr_dev(label1, "class", "svelte-y4a1r8");
+    			attr_dev(label1, "class", "svelte-1ft84ws");
     			add_location(label1, file, 44, 3, 725);
-    			attr_dev(p1, "class", "svelte-y4a1r8");
+    			attr_dev(p1, "class", "svelte-1ft84ws");
     			add_location(p1, file, 45, 3, 753);
-    			attr_dev(div1, "class", "poeng svelte-y4a1r8");
+    			attr_dev(div1, "class", "poeng svelte-1ft84ws");
     			add_location(div1, file, 43, 2, 702);
-    			attr_dev(header, "class", "svelte-y4a1r8");
+    			attr_dev(header, "class", "svelte-1ft84ws");
     			add_location(header, file, 38, 1, 618);
-    			attr_dev(div2, "class", div2_class_value = "" + (null_to_empty(/*klasse*/ ctx[0]) + " svelte-y4a1r8"));
+    			attr_dev(div2, "class", div2_class_value = "" + (null_to_empty(/*klasse*/ ctx[0]) + " svelte-1ft84ws"));
     			add_location(div2, file, 50, 2, 795);
-    			attr_dev(main, "class", "svelte-y4a1r8");
+    			attr_dev(main, "class", "svelte-1ft84ws");
     			add_location(main, file, 49, 1, 786);
     			attr_dev(input, "type", "number");
-    			attr_dev(input, "class", "svelte-y4a1r8");
+    			attr_dev(input, "class", "svelte-1ft84ws");
     			add_location(input, file, 54, 2, 888);
-    			attr_dev(footer, "class", "svelte-y4a1r8");
+    			attr_dev(footer, "class", "svelte-1ft84ws");
     			add_location(footer, file, 53, 1, 877);
-    			attr_dev(section, "class", "svelte-y4a1r8");
+    			attr_dev(section, "class", "svelte-1ft84ws");
     			add_location(section, file, 37, 0, 607);
     		},
     		l: function claim(nodes) {
@@ -449,7 +449,7 @@ var app = (function () {
     			if (dirty & /*poeng*/ 4) set_data_dev(t2, /*poeng*/ ctx[2]);
     			if (dirty & /*regnestykke*/ 8) set_data_dev(t8, /*regnestykke*/ ctx[3]);
 
-    			if (dirty & /*klasse*/ 1 && div2_class_value !== (div2_class_value = "" + (null_to_empty(/*klasse*/ ctx[0]) + " svelte-y4a1r8"))) {
+    			if (dirty & /*klasse*/ 1 && div2_class_value !== (div2_class_value = "" + (null_to_empty(/*klasse*/ ctx[0]) + " svelte-1ft84ws"))) {
     				attr_dev(div2, "class", div2_class_value);
     			}
 
