@@ -52,8 +52,7 @@
 		} else {
 			alert(`GAME OVER 😫 Du klarte ${poeng}🤩`);
 		}
-
-		
+	
 	}
 
 	
