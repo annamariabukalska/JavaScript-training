@@ -77,6 +77,14 @@ var app = (function () {
     function set_current_component(component) {
         current_component = component;
     }
+    function get_current_component() {
+        if (!current_component)
+            throw new Error(`Function called outside component initialization`);
+        return current_component;
+    }
+    function onMount(fn) {
+        get_current_component().$$.on_mount.push(fn);
+    }
 
     const dirty_components = [];
     const binding_callbacks = [];
@@ -338,15 +346,16 @@ var app = (function () {
     	let section;
     	let header;
     	let div0;
-    	let label0;
-    	let t1;
     	let p0;
+    	let t1;
+    	let p1;
     	let t2;
     	let t3;
     	let div1;
-    	let label1;
+    	let p2;
     	let t5;
-    	let p1;
+    	let p3;
+    	let t6;
     	let t7;
     	let main;
     	let div2;
@@ -356,11 +365,13 @@ var app = (function () {
     	let footer;
     	let input;
     	let input_updating = false;
+    	let t10;
+    	let button;
     	let dispose;
 
     	function input_input_handler() {
     		input_updating = true;
-    		/*input_input_handler*/ ctx[12].call(input);
+    		/*input_input_handler*/ ctx[13].call(input);
     	}
 
     	const block = {
@@ -368,18 +379,18 @@ var app = (function () {
     			section = element("section");
     			header = element("header");
     			div0 = element("div");
-    			label0 = element("label");
-    			label0.textContent = "Poeng";
-    			t1 = space();
     			p0 = element("p");
+    			p0.textContent = "Poeng";
+    			t1 = space();
+    			p1 = element("p");
     			t2 = text(/*poeng*/ ctx[2]);
     			t3 = space();
     			div1 = element("div");
-    			label1 = element("label");
-    			label1.textContent = "Highscore";
+    			p2 = element("p");
+    			p2.textContent = "Highscore";
     			t5 = space();
-    			p1 = element("p");
-    			p1.textContent = "0";
+    			p3 = element("p");
+    			t6 = text(/*poeng*/ ctx[2]);
     			t7 = space();
     			main = element("main");
     			div2 = element("div");
@@ -387,31 +398,39 @@ var app = (function () {
     			t9 = space();
     			footer = element("footer");
     			input = element("input");
-    			attr_dev(label0, "class", "svelte-1ft84ws");
-    			add_location(label0, file, 40, 3, 652);
-    			attr_dev(p0, "class", "svelte-1ft84ws");
-    			add_location(p0, file, 41, 3, 676);
-    			attr_dev(div0, "class", "poeng svelte-1ft84ws");
-    			add_location(div0, file, 39, 2, 629);
-    			attr_dev(label1, "class", "svelte-1ft84ws");
-    			add_location(label1, file, 44, 3, 725);
-    			attr_dev(p1, "class", "svelte-1ft84ws");
-    			add_location(p1, file, 45, 3, 753);
-    			attr_dev(div1, "class", "poeng svelte-1ft84ws");
-    			add_location(div1, file, 43, 2, 702);
-    			attr_dev(header, "class", "svelte-1ft84ws");
-    			add_location(header, file, 38, 1, 618);
-    			attr_dev(div2, "class", div2_class_value = "" + (null_to_empty(/*klasse*/ ctx[0]) + " svelte-1ft84ws"));
-    			add_location(div2, file, 50, 2, 795);
-    			attr_dev(main, "class", "svelte-1ft84ws");
-    			add_location(main, file, 49, 1, 786);
+    			t10 = space();
+    			button = element("button");
+    			button.textContent = "Restart";
+    			attr_dev(p0, "class", "poeng-overskrift svelte-12zf896");
+    			add_location(p0, file, 65, 3, 997);
+    			attr_dev(p1, "class", "poeng svelte-12zf896");
+    			add_location(p1, file, 66, 3, 1038);
+    			attr_dev(div0, "class", "svelte-12zf896");
+    			add_location(div0, file, 64, 2, 988);
+    			attr_dev(p2, "class", "poeng-overskrift svelte-12zf896");
+    			add_location(p2, file, 69, 3, 1087);
+    			attr_dev(p3, "class", "poeng svelte-12zf896");
+    			add_location(p3, file, 70, 3, 1132);
+    			attr_dev(div1, "class", "svelte-12zf896");
+    			add_location(div1, file, 68, 2, 1078);
+    			attr_dev(header, "class", "svelte-12zf896");
+    			add_location(header, file, 63, 1, 977);
+    			attr_dev(div2, "class", div2_class_value = "" + (null_to_empty(/*klasse*/ ctx[0]) + " svelte-12zf896"));
+    			add_location(div2, file, 75, 2, 1194);
+    			attr_dev(main, "class", "svelte-12zf896");
+    			add_location(main, file, 74, 1, 1185);
     			attr_dev(input, "type", "number");
-    			attr_dev(input, "class", "svelte-1ft84ws");
-    			add_location(input, file, 54, 2, 888);
-    			attr_dev(footer, "class", "svelte-1ft84ws");
-    			add_location(footer, file, 53, 1, 877);
-    			attr_dev(section, "class", "svelte-1ft84ws");
-    			add_location(section, file, 37, 0, 607);
+    			attr_dev(input, "placeholder", "Skriv inn tall");
+    			attr_dev(input, "class", "svelte-12zf896");
+    			add_location(input, file, 79, 2, 1287);
+    			attr_dev(button, "class", "button svelte-12zf896");
+    			attr_dev(button, "type", "Restart");
+    			button.value = "Restart";
+    			add_location(button, file, 80, 2, 1379);
+    			attr_dev(footer, "class", "svelte-12zf896");
+    			add_location(footer, file, 78, 1, 1276);
+    			attr_dev(section, "class", "svelte-12zf896");
+    			add_location(section, file, 62, 0, 966);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -420,15 +439,16 @@ var app = (function () {
     			insert_dev(target, section, anchor);
     			append_dev(section, header);
     			append_dev(header, div0);
-    			append_dev(div0, label0);
-    			append_dev(div0, t1);
     			append_dev(div0, p0);
-    			append_dev(p0, t2);
+    			append_dev(div0, t1);
+    			append_dev(div0, p1);
+    			append_dev(p1, t2);
     			append_dev(header, t3);
     			append_dev(header, div1);
-    			append_dev(div1, label1);
+    			append_dev(div1, p2);
     			append_dev(div1, t5);
-    			append_dev(div1, p1);
+    			append_dev(div1, p3);
+    			append_dev(p3, t6);
     			append_dev(section, t7);
     			append_dev(section, main);
     			append_dev(main, div2);
@@ -437,19 +457,23 @@ var app = (function () {
     			append_dev(section, footer);
     			append_dev(footer, input);
     			set_input_value(input, /*svar*/ ctx[1]);
+    			append_dev(footer, t10);
+    			append_dev(footer, button);
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(div2, "animationend", /*gameOver*/ ctx[5], false, false, false),
+    				listen_dev(div2, "animationend", /*gameOver*/ ctx[6], false, false, false),
     				listen_dev(input, "input", input_input_handler),
-    				listen_dev(input, "input", /*sjekkSvar*/ ctx[4], false, false, false)
+    				listen_dev(input, "input", /*sjekkSvar*/ ctx[5], false, false, false),
+    				listen_dev(button, "click", /*restart*/ ctx[4], false, false, false)
     			];
     		},
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*poeng*/ 4) set_data_dev(t2, /*poeng*/ ctx[2]);
+    			if (dirty & /*poeng*/ 4) set_data_dev(t6, /*poeng*/ ctx[2]);
     			if (dirty & /*regnestykke*/ 8) set_data_dev(t8, /*regnestykke*/ ctx[3]);
 
-    			if (dirty & /*klasse*/ 1 && div2_class_value !== (div2_class_value = "" + (null_to_empty(/*klasse*/ ctx[0]) + " svelte-1ft84ws"))) {
+    			if (dirty & /*klasse*/ 1 && div2_class_value !== (div2_class_value = "" + (null_to_empty(/*klasse*/ ctx[0]) + " svelte-12zf896"))) {
     				attr_dev(div2, "class", div2_class_value);
     			}
 
@@ -480,15 +504,34 @@ var app = (function () {
 
     function instance($$self, $$props, $$invalidate) {
     	let klasse = "faller";
-    	let tall1 = 9;
-    	let tall2 = 5;
+    	let tall1 = 0;
+    	let tall2 = 0;
     	let svar = "";
     	let theGameIsOn = true;
     	let poeng = 0;
 
+    	onMount(() => {
+    		lagNyeTall();
+    	});
+
     	const lagNyeTall = () => {
-    		$$invalidate(6, tall1 = Math.ceil(Math.random() * 10));
-    		$$invalidate(7, tall2 = Math.ceil(Math.random() * 10));
+    		$$invalidate(7, tall1 = Math.ceil(Math.random() * 10));
+    		$$invalidate(8, tall2 = Math.ceil(Math.random() * 10));
+    	};
+
+    	const restart = () => {
+    		theGameIsOn = true;
+    		$$invalidate(2, poeng = 0);
+    		$$invalidate(1, svar = "");
+    		$$invalidate(0, klasse = "");
+    		lagNyeTall();
+
+    		setTimeout(
+    			() => {
+    				$$invalidate(0, klasse = "faller");
+    			},
+    			50
+    		);
     	};
 
     	const sjekkSvar = () => {
@@ -510,6 +553,12 @@ var app = (function () {
     	const gameOver = () => {
     		theGameIsOn = false;
     		console.log("GAME OVER");
+
+    		if (poeng == 0) {
+    			alert(`GAME OVER 😫 Ingen poeng!`);
+    		} else {
+    			alert(`GAME OVER 😫 Du klarte ${poeng}🤩`);
+    		}
     	};
 
     	const writable_props = [];
@@ -527,6 +576,7 @@ var app = (function () {
     	}
 
     	$$self.$capture_state = () => ({
+    		onMount,
     		klasse,
     		tall1,
     		tall2,
@@ -534,6 +584,7 @@ var app = (function () {
     		theGameIsOn,
     		poeng,
     		lagNyeTall,
+    		restart,
     		sjekkSvar,
     		gameOver,
     		fasit,
@@ -543,12 +594,12 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ("klasse" in $$props) $$invalidate(0, klasse = $$props.klasse);
-    		if ("tall1" in $$props) $$invalidate(6, tall1 = $$props.tall1);
-    		if ("tall2" in $$props) $$invalidate(7, tall2 = $$props.tall2);
+    		if ("tall1" in $$props) $$invalidate(7, tall1 = $$props.tall1);
+    		if ("tall2" in $$props) $$invalidate(8, tall2 = $$props.tall2);
     		if ("svar" in $$props) $$invalidate(1, svar = $$props.svar);
     		if ("theGameIsOn" in $$props) theGameIsOn = $$props.theGameIsOn;
     		if ("poeng" in $$props) $$invalidate(2, poeng = $$props.poeng);
-    		if ("fasit" in $$props) $$invalidate(9, fasit = $$props.fasit);
+    		if ("fasit" in $$props) $$invalidate(10, fasit = $$props.fasit);
     		if ("riktigsvar" in $$props) riktigsvar = $$props.riktigsvar;
     		if ("regnestykke" in $$props) $$invalidate(3, regnestykke = $$props.regnestykke);
     	};
@@ -562,15 +613,15 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*tall1, tall2*/ 192) {
-    			 $$invalidate(9, fasit = tall1 * tall2);
+    		if ($$self.$$.dirty & /*tall1, tall2*/ 384) {
+    			 $$invalidate(10, fasit = tall1 * tall2);
     		}
 
-    		if ($$self.$$.dirty & /*fasit, svar*/ 514) {
+    		if ($$self.$$.dirty & /*fasit, svar*/ 1026) {
     			 riktigsvar = fasit === svar;
     		}
 
-    		if ($$self.$$.dirty & /*tall1, tall2*/ 192) {
+    		if ($$self.$$.dirty & /*tall1, tall2*/ 384) {
     			 $$invalidate(3, regnestykke = `${tall1} x ${tall2}`);
     		}
     	};
@@ -580,6 +631,7 @@ var app = (function () {
     		svar,
     		poeng,
     		regnestykke,
+    		restart,
     		sjekkSvar,
     		gameOver,
     		tall1,
