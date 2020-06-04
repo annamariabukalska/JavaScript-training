@@ -12,3 +12,4 @@ Svelte: hente data, mine egne JSON-data, velge fra liste, hente tilfeldig person
 
 Animasjon, spill som: Flappy Bird, trommesett, multiplikasjonsspill.
 
+<img width="1181" alt="Skjermbilde 2020-06-03 kl  15 57 49" src="https://user-images.githubusercontent.com/56019427/83745297-9b8b7a00-a65d-11ea-82a4-f51b1baed8e8.png">
