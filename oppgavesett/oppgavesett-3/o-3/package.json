@@ -1,7 +1,7 @@
 {
   "name": "cbDN8yH9",
   "dependencies": {
-    "svelte": "3.16.0"
+    "svelte": "3.49.0"
   },
   "devDependencies": {
     "webpack": "^2.0",
